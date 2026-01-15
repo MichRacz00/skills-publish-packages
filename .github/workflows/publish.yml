@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 permissions:
   packages: write
   contents: read
@@ -28,6 +27,6 @@ jobs:
       - name: Build container
         uses: docker/build-push-action@v5
         with:
-          context: -
+          context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
